@@ -1,0 +1,38 @@
+layout:
+  display:
+    include: true
+    spacing: true
+    widths: true
+    silent: true
+    fractions: true
+  flexbox:
+    include: true
+mediaquery:
+  palm:
+    include: true
+    widths: true
+    layout: true
+  lap:
+    include: true
+    widths: true
+    layout: true
+  lap-and-up:
+    include: true
+    widths: true
+    layout: true
+  portable:
+    include: true
+    widths: true
+    layout: true
+  desk:
+    include: true
+    widths: true
+    layout: true
+  desk-wide:
+    include: false
+    widths: true
+    layout: true
+  under-desk-wide:
+    include: true
+    widths: true
+    layout: true
