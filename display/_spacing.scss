@@ -1,3 +1,4 @@
+@mixin spacing-src($display-namespace:"") {
 /**
  * Derived from inuitcss [https://github.com/inuitcss]
  *
@@ -24,7 +25,6 @@
   * sizes from being overly verbose.
   * `.(m|p)(t|r|b|l|h|v)(-|+|0) {}` = margin/padding top/right/bottom/left/horizontal/vertical less/more/none
   */
-@mixin spacing-src($display-namespace:"") {
 
   @if use-layout(display, spacing) {
 

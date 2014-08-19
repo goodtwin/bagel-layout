@@ -1,3 +1,4 @@
+@mixin widths-internal-src($display-namespace:"") {
 /**
  * Derived from inuitcss [https://github.com/inuitcss]
  *
@@ -22,8 +23,6 @@
  * word format (e.g. `two-thirds`). Toggle formats by overriding the
  * `$globalConfig -> display -> fractions` variable.
  */
-
-@mixin widths-internal-src($display-namespace:"") {
 
   // Predefine the variables below in order to alter and enable specific features.
   $widths-namespace: $display-namespace !default;

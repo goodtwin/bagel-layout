@@ -1,5 +1,7 @@
 @import "flexbox";
 
-@if use-layout(flexbox) {
-  @include flexbox-src;
+@include exports('flexbox-src') {
+  @if use-layout(flexbox) {
+    @include flexbox-src;
+  }
 }

@@ -1,4 +1,8 @@
 layout:
+  normalize:
+    include: true
+  type:
+    include: true
   display:
     include: true
     spacing: true
