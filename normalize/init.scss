@@ -1,0 +1,7 @@
+@import "normalize";
+
+@include exports('normalize-src') {
+	@if use-layout(normalize) {
+		@include normalize-src;
+	}
+}

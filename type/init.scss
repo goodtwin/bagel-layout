@@ -1,0 +1,9 @@
+@import "font-size";
+@import "transform";
+
+@include exports('type-src') {
+	@if use-layout(type) {
+		@include font-size-src;
+		@include transform-src;
+	}
+}
