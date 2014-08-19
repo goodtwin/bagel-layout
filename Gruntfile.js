@@ -17,7 +17,7 @@ module.exports = function (grunt) {
           cssFormat: 'dash',
           useSassMaps: true
         },
-        src: ['config.yml', 'node_modules/bagel-*/config.yml'],
+        src: ['node_modules/bagel-functions/config.yml', 'config.yml'], // order matters
         dest: [
           'config.scss'
         ]
