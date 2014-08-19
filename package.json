@@ -1,6 +1,6 @@
 {
   "name": "bagel-layout",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "title": "Bagel UI",
   "description": "Delicious UI Framework",
   "homepage": "http://goodtwin.co",
@@ -14,7 +14,7 @@
     "url": "git://github.com/goodtwin/bagel-layout.git"
   },
   "dependencies": {
-    "bagel-functions": "git://github.com/goodtwin/bagel-functions.git#v0.1.3"
+    "bagel-functions": "git://github.com/goodtwin/bagel-functions.git#v0.1.4"
   },
   "devDependencies": {
     "grunt": "~0.4.4",
