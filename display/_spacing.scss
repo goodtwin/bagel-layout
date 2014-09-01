@@ -1,4 +1,4 @@
-@mixin spacing-src($display-namespace:"") {
+@mixin spacing-internal-src($display-namespace:"") {
 /**
  * Derived from inuitcss [https://github.com/inuitcss]
  *
@@ -237,5 +237,20 @@
       .#{$display-namespace}ph0     { padding-right:    0 !important; padding-left:     0 !important; }
       .#{$display-namespace}pv0     { padding-top:      0 !important; padding-bottom:   0 !important; }
 
+  }
+}
+
+@mixin spacing-src($display-namespace:"") {
+  @include spacing-internal-src($display-namespace);
+
+  @each $alias, $condition in $breakpoints {
+
+    @if use-mq($alias, spacing) {
+
+        @include media-query(#{$alias}) {
+          @include spacing-internal-src('#{$alias}--');
+        }
+
+      }
   }
 }

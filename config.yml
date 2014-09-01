@@ -16,27 +16,34 @@ mediaquery:
     include: true
     widths: true
     layout: true
+    spacing: true
   lap:
     include: true
     widths: true
     layout: true
+    spacing: true
   lap-and-up:
     include: true
     widths: true
     layout: true
+    spacing: true
   portable:
     include: true
     widths: true
     layout: true
+    spacing: true
   desk:
     include: true
     widths: true
     layout: true
+    spacing: true
   desk-wide:
     include: false
     widths: true
     layout: true
+    spacing: true
   under-desk-wide:
     include: true
     widths: true
     layout: true
+    spacing: true
