@@ -1,10 +1,37 @@
-@mixin font-size-src(){
+@mixin font-size-internal-src($size-namespace:""){
   /**
    * As per: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
    *
    * Double-stranded heading hierarchy.
    */
 
+
+	.#{$size-namespace}alpha   { @include font-size-important(base(h1-size)); }
+	.#{$size-namespace}beta    { @include font-size-important(base(h2-size)); }
+	.#{$size-namespace}gamma   { @include font-size-important(base(h3-size)); }
+	.#{$size-namespace}delta   { @include font-size-important(base(h4-size)); }
+	.#{$size-namespace}epsilon { @include font-size-important(base(h5-size)); }
+	.#{$size-namespace}zeta    { @include font-size-important(base(h6-size)); }
+
+  /**
+   * A series of classes for setting massive type; for use in heroes, mastheads,
+   * promos, etc.
+   */
+  .#{$size-namespace}giga { @include font-size-important(base(giga-size)); }
+  .#{$size-namespace}mega { @include font-size-important(base(mega-size)); }
+  .#{$size-namespace}kilo { @include font-size-important(base(kilo-size)); }
+
+  /**
+   * A series of classes for setting tiny type; for use in smallprint etc.
+   */
+  .#{$size-namespace}smallprint,
+  .#{$size-namespace}milli { @include font-size-important(base(milli-size)); }
+  .#{$size-namespace}micro { @include font-size-important(base(micro-size)); }
+
+}
+
+@mixin font-size-src($display-namespace:"") {
+  
   html, body { font-size: base(font-size); }
 
   h1 { @include font-size(base(h1-size)); }
@@ -14,26 +41,16 @@
   h5 { @include font-size(base(h5-size)); }
   h6 { @include font-size(base(h6-size)); }
 
-	.alpha   { @include font-size-important(base(h1-size)); }
-	.beta    { @include font-size-important(base(h2-size)); }
-	.gamma   { @include font-size-important(base(h3-size)); }
-	.delta   { @include font-size-important(base(h4-size)); }
-	.epsilon { @include font-size-important(base(h5-size)); }
-	.zeta    { @include font-size-important(base(h6-size)); }
+  @include font-size-internal-src($display-namespace);
 
-  /**
-   * A series of classes for setting massive type; for use in heroes, mastheads,
-   * promos, etc.
-   */
-  .giga { @include font-size-important(base(giga-size)); }
-  .mega { @include font-size-important(base(mega-size)); }
-  .kilo { @include font-size-important(base(kilo-size)); }
+  @each $alias, $condition in $breakpoints {
 
-  /**
-   * A series of classes for setting tiny type; for use in smallprint etc.
-   */
-  .smallprint,
-  .milli { @include font-size-important(base(milli-size)); }
-  .micro { @include font-size-important(base(micro-size)); }
+    @if use-mq($alias, sizes) {
 
+        @include media-query(#{$alias}) {
+          @include font-size-internal-src('#{$alias}--');
+        }
+
+      }
+  }
 }
