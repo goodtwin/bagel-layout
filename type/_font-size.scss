@@ -31,8 +31,8 @@
 }
 
 @mixin font-size-src($display-namespace:"") {
-  
-  html, body { font-size: base(font-size); }
+
+  html, body { @include font-size(base(font-size)); }
 
   h1 { @include font-size(base(h1-size)); }
   h2 { @include font-size(base(h2-size)); }
