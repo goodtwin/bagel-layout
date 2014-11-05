@@ -9,6 +9,16 @@
   width: 1px !important;
 }
 
+/**
+  * @name Visibility
+  * @description Responsive enabled. Used to either visually, or totally, hide an element.
+  * @section helpers.trumps.visibility
+  *
+  *
+  * @markup
+  *  <div class="visuallyhidden">Visually hidden element.</div>
+  *  <div class="hidden">Totally hidden element.</div>
+  */
 @mixin visibility-src {
   /*!
    * Derived from inuitcss [https://github.com/inuitcss]
@@ -28,16 +38,6 @@
    * limitations under the License.
    */
 
-  /**
-    * @name Visibility
-    * @description Responsive enabled. Used to either visually, or totally, hide an element.
-    * @section helpers.trumps.visibility
-    *
-    *
-    * @markup
-    *  <div class="visuallyhidden">Visually hidden element.</div>
-    *  <div class="hidden">Totally hidden element.</div>
-    */
   .accessibility,
   .visuallyhidden{
       @include accessibility;

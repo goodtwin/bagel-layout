@@ -18,10 +18,13 @@
 @import "alignment";
 @import "clearfix";
 @import "display";
+@import "flexbox";
+@import "font-size";
 @import "overflow";
 @import "position";
 @import "size";
 @import "spacing";
+@import "transform";
 @import "visibility";
 @import "widths";
 
@@ -32,10 +35,13 @@
     @include alignment-src;
     @include clearfix-src;
     @include display-src;
+    @include flexbox-src;
+    @include font-size-src;
     @include overflow-src;
     @include position-src;
     @include size-src;
     @include spacing-src($display-namespace);
+    @include transform-src;
     @include visibility-src;
     @include widths-src($display-namespace);
   }

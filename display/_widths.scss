@@ -1,15 +1,15 @@
+/**
+* @name Widths
+* @description Responsive enabled. Used to set percentage widths on an element. Fractions are in 2, 4, 6, 8, 10, 12.
+* @section helpers.trumps.visibility
+*
+*
+* @markup
+*  <div class="w-1-1">1/1 (100%) width of element's container.</div>
+*  <div class="w-5-8">5/8 width of element's container.</div>
+*/
 @mixin widths-internal-src($display-namespace:"") {
 
-  /**
-  * @name Widths
-  * @description Responsive enabled. Used to set percentage widths on an element. Fractions are in 2, 4, 6, 8, 10, 12.
-  * @section helpers.trumps.visibility
-  *
-  *
-  * @markup
-  *  <div class="w-1-1">1/1 (100%) width of element's container.</div>
-  *  <div class="w-5-8">5/8 width of element's container.</div>
-  */
   $widths-namespace: 'w';
 
   @if use-layout(display, widths) {
