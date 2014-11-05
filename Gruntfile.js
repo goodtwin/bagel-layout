@@ -16,23 +16,6 @@ module.exports = function (grunt) {
   grunt.initConfig({
     globalConfig: globalConfig,
     pkg: grunt.file.readJSON('./package.json'),
-    assemble : {
-      docs: {
-        options: {
-          assets: '<%= globalConfig.docs  %>/assets',
-          flatten: false,
-          partials: ['<%= globalConfig.docs  %>/partials/*.hbs'],
-          layout: '<%= globalConfig.docs  %>/layouts/default.hbs',
-          data: ['<%= globalConfig.docs  %>/data/*.{json,yml}','config.{json,yml}']
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= globalConfig.styleguide  %>',
-          src: ['**/*.hbs'],
-          dest: '<%= globalConfig.dist.docs  %>'
-        }]
-      }
-    },
     shared_config: {
       style: {
         options: {
@@ -112,10 +95,9 @@ module.exports = function (grunt) {
   });
 
 require('load-grunt-tasks')(grunt);
-grunt.loadNpmTasks('assemble');
 
 grunt.registerTask('default', ['build']);
 grunt.registerTask('distcss', ['sass:dist', 'myth:dist']);
-grunt.registerTask('build', ['shared_config', 'distcss', 'sass:styleguide', 'assemble:docs']);
+grunt.registerTask('build', ['shared_config', 'distcss', 'sass:styleguide', 'dss']);
 
 };
