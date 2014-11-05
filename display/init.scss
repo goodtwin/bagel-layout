@@ -1,7 +1,24 @@
+/*!
+ * Spacing and widths helpers derived from inuitcss [https://github.com/inuitcss]
+ *
+ * Copyright 2014 Harry Roberts
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 @import "alignment";
 @import "clearfix";
 @import "display";
-@import "fullbleed";
+@import "overflow";
 @import "position";
 @import "size";
 @import "spacing";
@@ -15,11 +32,19 @@
     @include alignment-src;
     @include clearfix-src;
     @include display-src;
-    @include fullbleed-src;
+    @include overflow-src;
     @include position-src;
     @include size-src;
     @include spacing-src($display-namespace);
     @include visibility-src;
     @include widths-src($display-namespace);
+  }
+}
+
+@import "flexbox";
+
+@include exports('flexbox-src') {
+  @if use-layout(flexbox) {
+    @include flexbox-src;
   }
 }

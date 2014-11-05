@@ -1,21 +1,37 @@
 @mixin size-src {
-  [full-height] {
-      height: 100%;
-  }
-  [full-width] {
-      width: 100%;
-  }
-  [view-height] {
-      height: 100vh;
-  }
-  [view-width] {
-      width: 100vw;
-  }
-  [view-height-min] {
-      height: 100vm;
-      height: 100vmin;
-  }
-  [view-height-max] {
-      height: 100vmax;
+  /**
+    * @name full
+    * @description Used to force fluid filling of an element in its container, or the viewport.
+    * @section helpers.trumps.full
+    *
+    *
+    * @markup
+    *  <div class="full-height">Sets this element's height to that of its container, if the container has a set or computed height.</div>
+    *  <div class="full-width">Sets this element's width to that of its container.</div>
+    *  <div class="full-view-height">Sets this element's height to that of the viewport.</div>
+    *  <div class="full-view-width">Sets this element's width to that of the viewport.</div>
+    *  <div class="full-view-height-min">Set the height to at least as large as the viewport size.</div>
+    *  <div class="full-view-height-max">Set the height to at most as large as the viewport size.</div>
+    */
+  .full {
+    &-height {
+        height: 100% !important;
+    }
+    &-width {
+        width: 100% !important;
+    }
+    &-view-height {
+        height: 100vh !important;
+    }
+    &-view-width {
+        width: 100vw !important;
+    }
+    &-view-height-min {
+        height: 100vm !important;
+        height: 100vmin !important;
+    }
+    &-view-height-max {
+        height: 100vmax !important;
+    }
   }
 }

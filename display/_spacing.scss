@@ -1,5 +1,5 @@
 @mixin spacing-internal-src($display-namespace:"") {
-/**
+/*!
  * Derived from inuitcss [https://github.com/inuitcss]
  *
  * Copyright 2014 Harry Roberts
@@ -18,21 +18,18 @@
  */
 
  /**
-  * Margin and padding helper classes. Use these to tweak layout on a micro
-  * level.
-  *
-  * Spacing uses a mask. Although less semantic, this keeps the class
-  * sizes from being overly verbose.
-  * `.(m|p)(t|r|b|l|h|v)(-|+|0) {}` = margin/padding top/right/bottom/left/horizontal/vertical less/more/none
-  */
-
+   * @name display.trumps.spacing
+   * @description Responsive enabled. Used to force certain margins, or spacing onto any element. These are often used to tweak layouts on a micro level. Spacing uses a mask. Although less semantic, this keeps the class sizes from being overly verbose. `.[-](m|p)[t|r|b|l|h|v][--|-|+|++|0] {}` = [negative](margin/padding)[top/right/bottom/left/horizontal/vertical][tiny/small/large/huge/none]
+   *
+   *
+   * @markup
+   *  <div class="mv+">Large vertical margin</div>
+   *  <div class="-mh-">Small negative horizontal margin.</div>
+   *  <div><h3 class="mv0">No vertical margin on this header.</h3></div>
+   *  <div class="p++">Huge Padding on all sides.</div>
+   *  <div class="pt-- pl--">Tiny top padding and tiny left padding.</div>
+   */
   @if use-layout(display, spacing) {
-
-      /**
-       * Margin helper classes.
-       *
-       * Add margins.
-       */
 
       .#{$display-namespace}m       { margin:           base(spacing-unit) !important; }
       .#{$display-namespace}mt      { margin-top:       base(spacing-unit) !important; }
@@ -42,10 +39,7 @@
       .#{$display-namespace}mh      { margin-right:     base(spacing-unit) !important; margin-left:      base(spacing-unit) !important; }
       .#{$display-namespace}mv      { margin-top:       base(spacing-unit) !important; margin-bottom:    base(spacing-unit) !important; }
 
-      /**
-       * Add tiny margins.
-       */
-
+      // tiny margins
       .#{$display-namespace}m--     { margin:           quarter(base(spacing-unit)) !important; }
       .#{$display-namespace}mt--    { margin-top:       quarter(base(spacing-unit)) !important; }
       .#{$display-namespace}mr--    { margin-right:     quarter(base(spacing-unit)) !important; }
@@ -54,10 +48,7 @@
       .#{$display-namespace}mh--    { margin-right:     quarter(base(spacing-unit)) !important; margin-left:     quarter(base(spacing-unit)) !important; }
       .#{$display-namespace}mv--    { margin-top:       quarter(base(spacing-unit)) !important; margin-bottom:   quarter(base(spacing-unit)) !important; }
 
-      /**
-       * Add small margins.
-       */
-
+      // small margins
       .#{$display-namespace}m-      { margin:           halve(base(spacing-unit)) !important; }
       .#{$display-namespace}mt-     { margin-top:       halve(base(spacing-unit)) !important; }
       .#{$display-namespace}mr-     { margin-right:     halve(base(spacing-unit)) !important; }
@@ -66,10 +57,7 @@
       .#{$display-namespace}mh-     { margin-right:     halve(base(spacing-unit)) !important; margin-left:   halve(base(spacing-unit)) !important; }
       .#{$display-namespace}mv-     { margin-top:       halve(base(spacing-unit)) !important; margin-bottom: halve(base(spacing-unit)) !important; }
 
-      /**
-       * Add large margins.
-       */
-
+      // large margins
       .#{$display-namespace}m\+     { margin:           double(base(spacing-unit)) !important; }
       .#{$display-namespace}mt\+    { margin-top:       double(base(spacing-unit)) !important; }
       .#{$display-namespace}mr\+    { margin-right:     double(base(spacing-unit)) !important; }
@@ -78,10 +66,7 @@
       .#{$display-namespace}mh\+    { margin-right:     double(base(spacing-unit)) !important; margin-left:      double(base(spacing-unit)) !important; }
       .#{$display-namespace}mv\+    { margin-top:       double(base(spacing-unit)) !important; margin-bottom:    double(base(spacing-unit)) !important; }
 
-      /**
-       * Add huge margins.
-       */
-
+      // huge margins
       .#{$display-namespace}m\+\+   { margin:           quadruple(base(spacing-unit)) !important; }
       .#{$display-namespace}mt\+\+  { margin-top:       quadruple(base(spacing-unit)) !important; }
       .#{$display-namespace}mr\+\+  { margin-right:     quadruple(base(spacing-unit)) !important; }
@@ -90,10 +75,7 @@
       .#{$display-namespace}mh\+\+  { margin-right:     quadruple(base(spacing-unit)) !important; margin-left:   quadruple(base(spacing-unit)) !important; }
       .#{$display-namespace}mv\+\+  { margin-top:       quadruple(base(spacing-unit)) !important; margin-bottom: quadruple(base(spacing-unit)) !important; }
 
-      /**
-       * Remove margins.
-       */
-
+      // no margins
       .#{$display-namespace}m0      { margin:           0 !important; }
       .#{$display-namespace}mt0     { margin-top:       0 !important; }
       .#{$display-namespace}mr0     { margin-right:     0 !important; }
@@ -102,10 +84,7 @@
       .#{$display-namespace}mh0     { margin-right:     0 !important; margin-left:      0 !important; }
       .#{$display-namespace}mv0     { margin-top:       0 !important; margin-bottom:    0 !important; }
 
-      /**
-       * Negative margins.
-       */
-
+      // negative margins
       .#{$display-namespace}-m      { margin:           base(spacing-unit)*-1 !important; }
       .#{$display-namespace}-mt     { margin-top:       base(spacing-unit)*-1 !important; }
       .#{$display-namespace}-mr     { margin-right:     base(spacing-unit)*-1 !important; }
@@ -114,10 +93,7 @@
       .#{$display-namespace}-mh     { margin-right:     base(spacing-unit)*-1 !important; margin-left:      base(spacing-unit)*-1 !important; }
       .#{$display-namespace}-mv     { margin-top:       base(spacing-unit)*-1 !important; margin-bottom:    base(spacing-unit)*-1 !important; }
 
-      /**
-       * Tiny negative margins.
-       */
-
+      // tiny negative margins
       .#{$display-namespace}-m--    { margin:           quarter(base(spacing-unit))*-1 !important; }
       .#{$display-namespace}-mt--   { margin-top:       quarter(base(spacing-unit))*-1 !important; }
       .#{$display-namespace}-mr--   { margin-right:     quarter(base(spacing-unit))*-1 !important; }
@@ -126,10 +102,7 @@
       .#{$display-namespace}-mh--   { margin-right:     quarter(base(spacing-unit))*-1 !important; margin-left:     quarter(base(spacing-unit))*-1 !important; }
       .#{$display-namespace}-mv--   { margin-top:       quarter(base(spacing-unit))*-1 !important; margin-bottom:   quarter(base(spacing-unit))*-1 !important; }
 
-      /**
-       * Small negative margins.
-       */
-
+      // small negative margins
       .#{$display-namespace}-m-     { margin:           halve(base(spacing-unit))*-1 !important; }
       .#{$display-namespace}-mt-    { margin-top:       halve(base(spacing-unit))*-1 !important; }
       .#{$display-namespace}-mr-    { margin-right:     halve(base(spacing-unit))*-1 !important; }
@@ -138,10 +111,7 @@
       .#{$display-namespace}-mh-    { margin-right:     halve(base(spacing-unit))*-1 !important; margin-left:   halve(base(spacing-unit))*-1 !important; }
       .#{$display-namespace}-mv-    { margin-top:       halve(base(spacing-unit))*-1 !important; margin-bottom: halve(base(spacing-unit))*-1 !important; }
 
-      /**
-       * Large negative margins.
-       */
-
+      // large negative margins
       .#{$display-namespace}-m\+    { margin:           double(base(spacing-unit))*-1 !important; }
       .#{$display-namespace}-mt\+   { margin-top:       double(base(spacing-unit))*-1 !important; }
       .#{$display-namespace}-mr\+   { margin-right:     double(base(spacing-unit))*-1 !important; }
@@ -150,10 +120,7 @@
       .#{$display-namespace}-mh\+   { margin-right:     double(base(spacing-unit))*-1 !important; margin-left:      double(base(spacing-unit))*-1 !important; }
       .#{$display-namespace}-mv\+   { margin-top:       double(base(spacing-unit))*-1 !important; margin-bottom:    double(base(spacing-unit))*-1 !important; }
 
-      /**
-       * Huge negative margins.
-       */
-
+      // huge negative margins
       .#{$display-namespace}-m\+\+  { margin:           quadruple(base(spacing-unit))*-1 !important; }
       .#{$display-namespace}-mt\+\+ { margin-top:       quadruple(base(spacing-unit))*-1 !important; }
       .#{$display-namespace}-mr\+\+ { margin-right:     quadruple(base(spacing-unit))*-1 !important; }
@@ -163,12 +130,7 @@
       .#{$display-namespace}-mv\+\+ { margin-top:       quadruple(base(spacing-unit))*-1 !important; margin-bottom: quadruple(base(spacing-unit))*-1 !important; }
 
 
-      /**
-       * Padding helper classes.
-       *
-       * Add paddings.
-       */
-
+      // paddings
       .#{$display-namespace}p       { padding:          base(spacing-unit) !important; }
       .#{$display-namespace}pt      { padding-top:      base(spacing-unit) !important; }
       .#{$display-namespace}pr      { padding-right:    base(spacing-unit) !important; }
@@ -177,10 +139,7 @@
       .#{$display-namespace}ph      { padding-right:    base(spacing-unit) !important; padding-left:    base(spacing-unit) !important; }
       .#{$display-namespace}pv      { padding-top:      base(spacing-unit) !important; padding-bottom:  base(spacing-unit) !important; }
 
-      /**
-       * Add tiny paddings.
-       */
-
+      // tiny paddings
       .#{$display-namespace}p--     { padding:           quarter(base(spacing-unit)) !important; }
       .#{$display-namespace}pt--    { padding-top:       quarter(base(spacing-unit)) !important; }
       .#{$display-namespace}pr--    { padding-right:     quarter(base(spacing-unit)) !important; }
@@ -189,10 +148,7 @@
       .#{$display-namespace}ph--    { padding-right:     quarter(base(spacing-unit)) !important; padding-left:      quarter(base(spacing-unit)) !important; }
       .#{$display-namespace}pv--    { padding-top:       quarter(base(spacing-unit)) !important; padding-bottom:    quarter(base(spacing-unit)) !important; }
 
-      /**
-       * Add small paddings.
-       */
-
+      // small paddings
       .#{$display-namespace}p-      { padding:           halve(base(spacing-unit)) !important; }
       .#{$display-namespace}pt-     { padding-top:       halve(base(spacing-unit)) !important; }
       .#{$display-namespace}pr-     { padding-right:     halve(base(spacing-unit)) !important; }
@@ -201,10 +157,7 @@
       .#{$display-namespace}ph-     { padding-right:     halve(base(spacing-unit)) !important; padding-left:    halve(base(spacing-unit)) !important; }
       .#{$display-namespace}pv-     { padding-top:       halve(base(spacing-unit)) !important; padding-bottom:  halve(base(spacing-unit)) !important; }
 
-      /**
-       * Add large paddings.
-       */
-
+      // large paddings
       .#{$display-namespace}p\+     { padding:           double(base(spacing-unit)) !important; }
       .#{$display-namespace}pt\+    { padding-top:       double(base(spacing-unit)) !important; }
       .#{$display-namespace}pr\+    { padding-right:     double(base(spacing-unit)) !important; }
@@ -213,10 +166,7 @@
       .#{$display-namespace}ph\+    { padding-right:     double(base(spacing-unit)) !important; padding-left:   double(base(spacing-unit)) !important; }
       .#{$display-namespace}pv\+    { padding-top:       double(base(spacing-unit)) !important; padding-bottom: double(base(spacing-unit)) !important; }
 
-      /**
-       * Add huge paddings.
-       */
-
+      // huge paddings
       .#{$display-namespace}p\+\+   { padding:           quadruple(base(spacing-unit)) !important; }
       .#{$display-namespace}pt\+\+  { padding-top:       quadruple(base(spacing-unit)) !important; }
       .#{$display-namespace}pr\+\+  { padding-right:     quadruple(base(spacing-unit)) !important; }
@@ -225,10 +175,7 @@
       .#{$display-namespace}ph\+\+  { padding-right:     quadruple(base(spacing-unit)) !important; padding-left:    quadruple(base(spacing-unit)) !important; }
       .#{$display-namespace}pv\+\+  { padding-top:       quadruple(base(spacing-unit)) !important; padding-bottom:  quadruple(base(spacing-unit)) !important; }
 
-      /**
-       * Remove paddings.
-       */
-
+      // no paddings
       .#{$display-namespace}p0      { padding:          0 !important; }
       .#{$display-namespace}pt0     { padding-top:      0 !important; }
       .#{$display-namespace}pr0     { padding-right:    0 !important; }

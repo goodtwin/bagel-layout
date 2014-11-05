@@ -1,53 +1,61 @@
 @mixin display-src {
-  [display-table] {
-    display: table!important;
-  }
-  [display-table_cell] {
-    display: table-cell!important;
-    vertical-align: middle;
-
-    &[centered] {
-      text-align: center;
+  /**
+    * @name display
+    * @description Used to vertically align elements. Important note: If your project matches browsers that support flexbox, the layout helpers, which utilize flexbox, are preferrable to the display helpers.
+    * @section helpers.trumps.display
+    */
+  .display {
+    /**
+      * @name display-table
+      * @description Used to vertically align elements using display-table.
+      * @section helpers.trumps.display.table
+      *
+      *
+      * @markup
+      *  <div class="display-table">
+      *    <div class="display-table_cell">Vertically centered via table</div>
+      *  </div>
+      *  <div class="display-table">
+      *    <div class="display-table_cell-centered">Vertically and horizontally centered via table</div>
+      *  </div>
+      */
+    &-table {
+      display: table!important;
     }
-  }
-
-  [display-vertical-ghost] {
-
-    &:before {
-      content: '';
-      display: inline-block;
-      height: 100%;
+    &-table_cell {
+      display: table-cell!important;
       vertical-align: middle;
-      margin-right: -0.25em; /* Adjusts for spacing */
-    }
-    &[center] {
-      text-align: center;
-    }
-    [centered] {
-      display: inline-block;
-      vertical-align: middle;
-    }
-  }
 
-  [overflow][scrollable] {
-    overflow: auto;
-  }
-  [overflow][scrollable-y] {
-    overflow-y: auto;
-  }
-  [overflow][scrollable-x] {
-    overflow-y: auto;
-  }
-  [overflow][hidden] {
-    overflow: hidden;
-  }
-  [overflow][hidden-x] {
-    overflow: hidden;
-  }
-  [overflow][hidden-y] {
-    overflow: hidden;
-  }
-  [overflow][visible] {
-    overflow: visible;
+      &-centered {
+        @extend .display-table_cell;
+        text-align: center;
+      }
+    }
+    /**
+      * @name display-vertical-ghost
+      * @description Uses a before element inline-blocked with height to align the other items vertically in the container.
+      * @section helpers.trumps.display.vertical-ghost
+      *
+      *
+      * @markup
+      *  <div class="display-vertical-ghost">
+      *    <h2 class="inlineBlock">Verticall centered via ghost element</h2>
+      *    <div class="inlineBlock">Vertically centered via ghost element</div>
+      *  </div>
+      */
+    &-vertical-ghost {
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em; // Adjusts for spacing
+      }
+      &-centered {
+        @extend .display-vertical-ghost;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
   }
 }
