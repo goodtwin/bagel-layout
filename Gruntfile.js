@@ -16,23 +16,6 @@ module.exports = function (grunt) {
   grunt.initConfig({
     globalConfig: globalConfig,
     pkg: grunt.file.readJSON('./package.json'),
-    assemble : {
-      docs: {
-        options: {
-          assets: '<%= globalConfig.docs  %>/assets',
-          flatten: false,
-          partials: ['<%= globalConfig.docs  %>/partials/*.hbs'],
-          layout: '<%= globalConfig.docs  %>/layouts/default.hbs',
-          data: ['<%= globalConfig.docs  %>/data/*.{json,yml}','config.{json,yml}']
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= globalConfig.styleguide  %>',
-          src: ['**/*.hbs'],
-          dest: '<%= globalConfig.dist.docs  %>'
-        }]
-      }
-    },
     shared_config: {
       style: {
         options: {
@@ -71,6 +54,38 @@ module.exports = function (grunt) {
         }
       }
     },
+    dss: {
+      docs: {
+        files: {
+          'dist/docs/': 'dist/style/style.css'
+        }
+      },
+      options: {
+        template: 'docs/',
+        template_index: 'index.hbs',
+        parsers: {
+          // Finds @param in comment blocks
+          param: function(i, line, block, file){
+            var param = line.split(' - ');
+            return {
+              name: param[0],
+              description: param[1],
+              default: param[2]
+            };
+          },
+          // Finds @type in comment blocks
+          type: function(i, line, block, file){
+            return line;
+          },
+          // Finds @example in comment blocks
+          example: function(i, line, block, file){
+            return {
+              example: line
+            };
+          }
+        }
+      }
+    },
     watch: {
       sass: {
         files: ['**/*.scss'],
@@ -80,10 +95,9 @@ module.exports = function (grunt) {
   });
 
 require('load-grunt-tasks')(grunt);
-grunt.loadNpmTasks('assemble');
 
 grunt.registerTask('default', ['build']);
 grunt.registerTask('distcss', ['sass:dist', 'myth:dist']);
-grunt.registerTask('build', ['shared_config', 'distcss', 'sass:styleguide', 'assemble:docs']);
+grunt.registerTask('build', ['shared_config', 'distcss', 'sass:styleguide', 'dss']);
 
 };

@@ -1,0 +1,18 @@
+@mixin transform-src {
+  /**
+    * @name text transforms
+    * @description Used to transform text.
+    * @section helpers.trumps.textTransforms
+    *
+    *
+    * @markup
+    *  <div class="cap">capitalize</div>
+    *  <div class="caps">all caps</div>
+    */
+  .caps{
+    text-transform: uppercase !important;
+  }
+  .cap{
+    text-transform: capitalize !important;
+  }
+}

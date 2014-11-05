@@ -1,0 +1,76 @@
+@mixin alignment-src {
+  /**
+    * @name float
+    * @description Use to force float on an element.
+    * @section helpers.trumps.alignment.float
+    *
+    *
+    * @markup
+    *  <div class="clearfix">
+    *    <div class="float-right">This is a floated right element</div>
+    *    <div class="float-left">This is a floated left element</div>
+    *    <div class="float-none">This is a non-floated element</div>
+    *  </div>
+    */
+  .float {
+    &-right {
+      float: right !important;
+    }
+    &-left {
+      float: left !important;
+    }
+    &-none {
+      float: none !important;
+    }
+  }
+  /**
+    * @name align-text
+    * @description Use to force text alignment on an element.
+    * @section helpers.trumps.alignment.text
+    *
+    *
+    * @markup
+    *    <div class="align-text-left">Left aligned text</div>
+    *    <div class="align-text-center">Center aligned text</div>
+    *    <div class="align-text-right">Right aligned text</div>
+    */
+  .align {
+    &-text-left {
+      text-align:left !important;
+    }
+    &-text-center {
+      text-align:center !important;
+    }
+    &-text-right {
+      text-align:right !important;
+    }
+  }
+  /**
+    * @name inlineBlock
+    * @description Use to force inline block display on an element. Often used in concert with vertically aligning the inline block elements.
+    * @section helpers.trumps.alignment.inlineBlock
+    *
+    *
+    * @markup
+    *    <div class="inlineBlock">Inline block element</div>
+    *    <div class="inlineBlock-top">Top aligned inline block element</div>
+    *    <div class="inlineBlock-middle">Middle aligned inline block element</div>
+    *    <div class="inlineBlock-bottom">Bottom aligned inline block element</div>
+    */
+  .inlineBlock {
+    display: inline-block !important;
+
+    &-top {
+      @extend .inlineBlock;
+      vertical-align: top !important;
+    }
+    &-middle {
+      @extend .inlineBlock;
+      vertical-align: middle !important;
+    }
+    &-bottom {
+      @extend .inlineBlock;
+      vertical-align: bottom !important;
+    }
+  }
+}

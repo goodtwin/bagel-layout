@@ -1,16 +1,26 @@
 @mixin accessibility{
-    border:0!important;
-    clip:rect(0 0 0 0)!important;
-    height:1px!important;
-    margin:-1px!important;
-    overflow:hidden!important;
-    padding:0!important;
-    position: absolute!important;
-    width:1px!important;
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
 }
 
+/**
+  * @name Visibility
+  * @description Responsive enabled. Used to either visually, or totally, hide an element.
+  * @section helpers.trumps.visibility
+  *
+  *
+  * @markup
+  *  <div class="visuallyhidden">Visually hidden element.</div>
+  *  <div class="hidden">Totally hidden element.</div>
+  */
 @mixin visibility-src {
-  /**
+  /*!
    * Derived from inuitcss [https://github.com/inuitcss]
    *
    * Copyright 2014 Harry Roberts
@@ -28,24 +38,24 @@
    * limitations under the License.
    */
 
-  /**
-   * Hide content off-screen without resorting to `display:none;`, also provide
-   * breakpoint specific hidden elements.
-   */
   .accessibility,
   .visuallyhidden{
       @include accessibility;
   }
+  .hidden {
+    display: none !important;
+  }
   @each $alias, $condition in $breakpoints {
-
     @if use-mq($alias) {
-
-        @include media-query(#{$alias}) {
-          .accessibility--#{$alias},
-          .visuallyhidden--#{$alias}{
-              @include accessibility;
-          }
+      @include media-query(#{$alias}) {
+        .#{$alias}--accessibility,
+        .#{$alias}--visuallyhidden {
+            @include accessibility;
         }
+        .#{$alias}--hidden {
+          display: none !important;
+        }
+      }
     }
   }
 }

@@ -1,0 +1,55 @@
+/**
+  * @name font size
+  * @description Responsive enabled. Used to force a specific font size on an element.
+  * @section helpers.trumps.fontSize
+  *
+  *
+  * @markup
+  *  <div class="alpha">Alpha (h1)</div>
+  *  <div class="beta">Beta (h2)</div>
+  *  <div class="gamma">Gamma (h3)</div>
+  *  <div class="delta">Delta (h4)</div>
+  *  <div class="epsilon">Epsilopn (h5)</div>
+  *  <div class="zeta">Zeta (h6)</div>
+  *  <div class="giga">Giga</div>
+  *  <div class="mega">Mega</div>
+  *  <div class="kilo">Kilo</div>
+  *  <div class="milli">Milli</div>
+  *  <div class="mirco">Micro</div>
+  */
+@mixin font-size-internal-src($size-namespace:""){
+  .#{$size-namespace}alpha   { @include font-size(base(h1-size), true); }
+  .#{$size-namespace}beta    { @include font-size(base(h2-size), true); }
+  .#{$size-namespace}gamma   { @include font-size(base(h3-size), true); }
+  .#{$size-namespace}delta   { @include font-size(base(h4-size), true); }
+  .#{$size-namespace}epsilon { @include font-size(base(h5-size), true); }
+  .#{$size-namespace}zeta    { @include font-size(base(h6-size), true); }
+
+  .#{$size-namespace}giga { @include font-size(base(giga-size), true); }
+  .#{$size-namespace}mega { @include font-size(base(mega-size), true); }
+  .#{$size-namespace}kilo { @include font-size(base(kilo-size), true); }
+
+  .#{$size-namespace}smallprint,
+  .#{$size-namespace}milli { @include font-size(base(milli-size), true); }
+  .#{$size-namespace}micro { @include font-size(base(micro-size), true); }
+}
+
+@mixin font-size-src($display-namespace:"") {
+  html, body { @include font-size(base(font-size), true); }
+  h1 { @include font-size(base(h1-size), true); }
+  h2 { @include font-size(base(h2-size), true); }
+  h3 { @include font-size(base(h3-size), true); }
+  h4 { @include font-size(base(h4-size), true); }
+  h5 { @include font-size(base(h5-size), true); }
+  h6 { @include font-size(base(h6-size), true); }
+
+  @include font-size-internal-src($display-namespace);
+
+  @each $alias, $condition in $breakpoints {
+    @if use-mq($alias, sizes) {
+      @include media-query(#{$alias}) {
+        @include font-size-internal-src('#{$alias}--');
+      }
+    }
+  }
+}

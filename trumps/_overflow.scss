@@ -1,0 +1,54 @@
+@mixin overflow-src {
+  /**
+    * @name overflow
+    * @description Used to force overflow state on an element.
+    * @section helpers.trumps.overflow
+    *
+    *
+    * @markup
+    *  <div class="overflow-scrollable">
+    *    <div>Overflow content</div>
+    *  </div>
+    *  <div class="overflow-scrollable-y">
+    *    <div>Overflow content</div>
+    *  </div>
+    *  <div class="overflow-scrollable-x">
+    *    <div>Overflow content</div>
+    *  </div>
+    *  <div class="overflow-hidden">
+    *    <div>Overflow content</div>
+    *  </div>
+    *  <div class="overflow-hidden-x">
+    *    <div>Overflow content</div>
+    *  </div>
+    *  <div class="overflow-hidden-y">
+    *    <div>Overflow content</div>
+    *  </div>
+    *  <div class="overflow-visible">
+    *    <div>Overflow content</div>
+    *  </div>
+    */
+  .overflow {
+    &-scrollable {
+      overflow: auto;
+    }
+    &-scrollable-y {
+      overflow-y: auto;
+    }
+    &-scrollable-x {
+      overflow-y: auto;
+    }
+    &-hidden {
+      overflow: hidden;
+    }
+    &-hidden-x {
+      overflow: hidden;
+    }
+    &-hidden-y {
+      overflow: hidden;
+    }
+    &-visible {
+      overflow: visible;
+    }
+  }
+}

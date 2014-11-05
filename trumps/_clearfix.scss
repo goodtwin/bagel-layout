@@ -1,0 +1,21 @@
+@mixin clearfix-src {
+  /**
+    * @name clearfix
+    * @description Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+    * @section helpers.trumps.clearfix
+    *
+    *
+    * @markup
+    *  <div class="clearfix">
+    *    <div class="float-right">This is a floated right element</div>
+    *    <div class="float-left">This is a floated left element</div>
+    *  </div>
+    */
+  .clearfix {
+    &:after {
+      content:"";
+      display:table !important;
+      clear:both !important;
+    }
+  }
+}

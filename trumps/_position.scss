@@ -1,0 +1,54 @@
+@mixin position-src {
+  /**
+    * @name position
+    * @description Used to position elements in and around their containers.
+    * @section helpers.trumps.position
+    *
+    *
+    * @markup
+    *  <div class="position-viewport">
+    *    <div>Fixed to the viewport</div>
+    *  </div>
+    *  <div class="position-containment">
+    *    <div class="position-ancestor">A combination used to position this element absolutely within its container.</div>
+    *  </div>
+    *  <div class="position-auto">Force a static positioning on an element.</div>
+    *  <div class="position-containment">
+    *    <div class="position-ancestor position-align-top position-align-left">A combination used to top & left position this element within its container.</div>
+    *  </div>
+    *  <div class="position-containment">
+    *    <div class="position-ancestor position-align-bottom position-align-right">A combination used to bottom & right position this element within its container.</div>
+    *  </div>
+    */
+  .position {
+    &-viewport {
+      position: fixed !important;
+      z-index: 3;
+    }
+    &-offset, &-containment {
+      position: relative !important;
+      z-index: 1;
+    }
+    &-ancestor {
+      position: absolute !important;
+      z-index: 2;
+    }
+    &-auto {
+      position: static !important;
+    }
+    &-align {
+      &-top {
+        top: 0 !important;
+      }
+      &-bottom {
+        bottom: 0 !important;
+      }
+      &-right {
+        right: 0 !important;
+      }
+      &-left {
+        left: 0 !important;
+      }
+    }
+  }
+}
