@@ -1,7 +1,7 @@
 {
   "name": "bagel-layout",
-  "version": "0.2.3",
-  "title": "Bagel UI",
+  "version": "0.2.4",
+  "title": "Bagel UI - Layout Helpers",
   "description": "Delicious UI Framework",
   "homepage": "http://goodtwin.co",
   "contributors": [
@@ -14,7 +14,7 @@
     "url": "git://github.com/goodtwin/bagel-layout.git"
   },
   "dependencies": {
-    "bagel-functions": "git://github.com/goodtwin/bagel-functions.git#v0.2.2"
+    "bagel-functions": "git://github.com/goodtwin/bagel-functions.git#v0.2.3"
   },
   "devDependencies": {
     "grunt": "~0.4.4",
