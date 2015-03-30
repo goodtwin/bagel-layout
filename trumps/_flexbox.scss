@@ -16,9 +16,11 @@
       */
     // [container] set flexbox and axes
     &-horizontal, &-vertical {
+      display: -webkit-flex !important;
       display: flex !important;
     }
     &-horizontal-inline, &-vertical-inline {
+      display: -webkit-inline-flex !important;
       display: inline-flex !important;
     }
     &-horizontal {
