@@ -45,9 +45,6 @@ module.exports = function (grunt) {
       }
     },
     myth: {
-      options: {
-        sourcemap: true
-      },
       dist: {
         files: {
           '<%= globalConfig.dist.style %>/style.css': '<%= globalConfig.dist.style %>/style.css'
