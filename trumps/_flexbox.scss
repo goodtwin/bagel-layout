@@ -16,11 +16,9 @@
       */
     // [container] set flexbox and axes
     &-horizontal, &-vertical {
-      display: -webkit-flex !important;
       display: flex !important;
     }
     &-horizontal-inline, &-vertical-inline {
-      display: -webkit-inline-flex !important;
       display: inline-flex !important;
     }
     &-horizontal {
@@ -49,28 +47,18 @@
 
     // [container] alignment in main axis
     &-start-justified {
-      -ms-flex-pack: start;
-      -webkit-justify-content: flex-start;
       justify-content: flex-start;
     }
     &-center-justified {
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
       justify-content: center;
     }
     &-end-justified {
-      -ms-flex-pack: end;
-      -webkit-justify-content: flex-end;
       justify-content: flex-end;
     }
     &-around-justified {
-      -ms-flex-pack: around;
-      -webkit-justify-content: space-around;
       justify-content: space-around;
     }
     &-justified {
-      -ms-flex-pack: justify;
-      -webkit-justify-content: space-between;
       justify-content: space-between;
     }
 
